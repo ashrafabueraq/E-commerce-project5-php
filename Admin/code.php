@@ -210,7 +210,7 @@ if (isset($_POST['edit_category'])) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $cat_name = $_POST['cat_name'];
-        $cat_desc = $_POST['cat_desc'];
+        $cat_desc = $_POST['cat_des'];
         $image = $_FILES['image'] ?? null;
         $imagePath = '';
         if (!is_dir('images')) {

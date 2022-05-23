@@ -22,7 +22,7 @@ if(isset($_SESSION['loggeduser'])){
 <body>
 <div id="myDiv">
   <h2 style="text-align:center"> Registration Form </h2>
-  <form id="form" onsubmit="return validation()" method="post" name="regForm"  action="Registerform.php">
+  <form id="form" onsubmit="return validation()" method="post" name="regForm"  action="">
 		<label>User Name: *</label>
 		<input type="text" name="username" placeholder="user name" size="25" />
 		

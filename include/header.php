@@ -1,5 +1,6 @@
-<?php 
-echo '
+<?php  
+?>
+
 <header>
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
@@ -10,41 +11,57 @@ echo '
 					
 					<!-- Logo desktop -->		
 					<a href="#" class="logo">
-						<img src="images/icons/logo-01.png" alt="IMG-LOGO">
+						<img src="https://cdn.discordapp.com/attachments/976178851434618890/978200479119056947/sotol_logo.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li class="active-menu">
+						<li>
 								<a href="index.php">Home</a>
-								<ul class="sub-menu">
-									<li><a href="index.php">Homepage 1</a></li>
-									<li><a href="home-02.php">Homepage 2</a></li>
-									<li><a href="home-03.php">Homepage 3</a></li>
-								</ul>
-							</li>
+								</li>
+							
 
 							<li>
 								<a href="product.php">Shop</a>
 							</li>
 
-							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.php">Features</a>
+							<li  >
+								<a href="shoping-cart.php">shopping cart</a>
 							</li>
-
-							<li>
-								<a href="blog.php">Blog</a>
-							</li>
-
-							<li>
+							<li  >
 								<a href="about.php">About</a>
 							</li>
-
-							<li>
+							<li  >
 								<a href="contact.php">Contact</a>
 							</li>
-						</ul>
+							<?php
+if(isset($_SESSION['loggeduser'])){
+
+echo '
+							<li>
+								<a href="profile.php?logout=true">log out </a>
+							</li>
+							<li>
+								<a href="profile.php">profile </a>
+							</li>
+	';
+}
+else{
+	echo '
+
+	<li>
+		<a href="login.php">login</a>
+	</li>
+
+	<li>
+		<a href="Register.php">regester</a>
+	</li>
+';	
+}
+?>
+	
+							</ul>
 					</div>	
 
 					<!-- Icon header -->
@@ -69,7 +86,7 @@ echo '
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="index.php"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+				<a href="index.php"><img src="https://cdn.discordapp.com/attachments/976178851434618890/978200479119056947/sotol_logo.png" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -177,4 +194,3 @@ echo '
 			</div>
 		</div>
 	</header>
-';

@@ -36,10 +36,16 @@ $row=$result->fetch(PDO::FETCH_ASSOC);
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/login.css" >
- 
+    <?php include 'include/style.php' ?> 
 </head>
   <body>
-      
+<!-- Header -->
+<?php include 'include/header.php' ?> 
+
+<!-- Cart -->
+<?php include 'include/smal_cart.php'; ?> 
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -61,7 +67,7 @@ $row=$result->fetch(PDO::FETCH_ASSOC);
                 </ol>
               </nav> -->
               <!-- /Breadcrumb -->
-        <h1 class="text-center">My profile</h1><br><br>
+        <h1 class="text-center" style="margin-top: 150px;">My profile</h1><br><br>
               <div class="row gutters-sm">
                 <div class="col-md-4 mb-3">
                   <div class="card">
@@ -146,27 +152,46 @@ $row=$result->fetch(PDO::FETCH_ASSOC);
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Total of the oeder </th>
+      <th scope="col">Date of order</th>
+      <th scope="col">Order detaile</th>
     </tr>
   </thead>
+  <?php 
+   
+  $q1 = "
+  SELECT * FROM `orders` 
+  ";
+  $data = $pdo->query($q1);
   
-  <tbody>
+  foreach($data as $v){
+      if($v['user_id'] == $user_id ){
+?>
+<tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row"><?php echo $v['order_id']; ?></th>
+      <td><?php echo $v['invoice']; ?></td>
+      <td><?php echo $v['order_date']; ?></td>
+      <td><?php echo '
+      <a class="btn btn-primary" href="orderdetail.php?order_id='.$v['order_id'].'">Show detaile </a>
+      
+      '; 
+      ?>
+      </td>
     </tr>
   </tbody>
+<?php
+      } 
+  }
+  ?>
+  
 
 </table>
 
 
 
                  
-
+<?php include 'include/js.php' ?> 
   </body>
 </html>
 

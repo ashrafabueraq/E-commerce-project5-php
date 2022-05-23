@@ -61,9 +61,9 @@ $user=$result->fetch();
 $count=$result->rowCount();
 
 if($count==1){
-session_start();
+
 $_SESSION['loggeduser']=$user['user_id'];
-header('location:profile.php');
+header('Location:profile.php');
 }else{
 	echo "<h3 style='color:red'>Invalid user name and password</h3>";
 }
@@ -76,6 +76,7 @@ header('location:profile.php');
 
 
 ?>
+<?php include 'include/js.php'; ?>
 <?php include 'include/js.php'; ?>
 </body>
 

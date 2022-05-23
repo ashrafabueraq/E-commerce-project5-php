@@ -7,15 +7,18 @@ function RemoveFromCart(){
         }
     }
 }
+
 if(isset($_GET['actiond'])){
 RemoveFromCart();
-}    
+}
+$tot = 0 ;    
 function ViewSmalCartData(){
-	
+	global $tot ;
 	if(isset($_SESSION['Cart'])){
 		$op = false ;
 		foreach ($_SESSION['Cart'] as $value) {
 			$op = true ;
+			$tot += $value['total'];
 
 					echo '
                     <a href="?actiond=true&pro_id='.$value['pro_id'].'">
@@ -67,7 +70,7 @@ function ViewSmalCartData(){
 				
 				<div class="w-full">
 					<div class="header-cart-total w-full p-tb-40">
-						Total: $90.00
+						Total: $<?php echo $tot ;?>
 					</div>
 
 					<div class="header-cart-buttons flex-w w-full">
